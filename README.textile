@@ -1,0 +1,3 @@
+1. http://github.com/hukl/blogmi.git
+2. cd blogmi
+3. run git1.9 bundle
