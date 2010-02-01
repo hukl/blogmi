@@ -1,0 +1,5 @@
+<% @posts.each do |post| %>
+  <h3><%= link_to post.title, "/2010/01/24/ipv6-is-there-everybody-is-waiting-for-you/" %></h3>
+  <p><%= post.published_at %></p>
+  <p><%= raw post.body%></p>
+<% end %>
