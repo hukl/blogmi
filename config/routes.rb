@@ -1,4 +1,9 @@
 Blogmi::Application.routes.draw do |map|
+  
+  resources :posts
+  
+  match ':year/:month/:day/:slug' => 'posts#show', :as => :permalink
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
