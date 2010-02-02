@@ -1,5 +1,5 @@
 <% @posts.each do |post| %>
   <h3><%= link_to post.title, post.public_path %></h3>
   <p>Published on: <time datetime="<%= post.published_at.xmlschema %>"><%= post.published_at %></time></p>
-  <p><%= raw post.body%></p>
+  <%= raw post.body%>
 <% end %>
