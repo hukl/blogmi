@@ -1,5 +1,7 @@
 Blogmi::Application.routes.draw do |map|
   
+  root :to => 'posts#index'
+  
   resources :posts
   
   match ':year/:month/:day/:slug' => 'posts#show', :as => :permalink
