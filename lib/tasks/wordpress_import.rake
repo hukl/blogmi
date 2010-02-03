@@ -1,4 +1,5 @@
 require 'yaml'
+require 'nokogiri'
 
 namespace :blogmi do
   
@@ -26,6 +27,17 @@ namespace :blogmi do
         :slug         => wp_post.post_name,
         :permalink    => wp_post.guid
       )
+    end
+    
+  end
+  
+  desc "Fix invalid ahrefs in wordpress posts"
+  task :fix_urls => :environment do
+    Post.all.each do |post|
+      
+      doc = Nokogiri::HTML.parse(post.body)
+      doc.css("a").each {|element| element[:href].sub("&", "%26")}
+      post.update_attributes(:body => doc.css("body").at("body/p").to_s)
     end
     
   end
