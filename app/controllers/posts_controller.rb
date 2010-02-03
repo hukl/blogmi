@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all.paginate :page => (params[:page] || 1)
+    @posts = Post.paginate :page => (params[:page] || 1)
   end
   
   def show
