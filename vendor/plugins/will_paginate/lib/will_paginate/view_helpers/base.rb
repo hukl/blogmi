@@ -60,7 +60,7 @@ module WillPaginate
         end
         # render HTML for pagination
         renderer.prepare collection, options, self
-        renderer.to_html
+        renderer.to_html.html_safe
       end
       
       # Renders a helpful message with numbers of displayed vs. total entries.
