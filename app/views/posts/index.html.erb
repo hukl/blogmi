@@ -3,3 +3,5 @@
   <p>Published on: <time datetime="<%= post.published_at.xmlschema %>"><%= post.published_at %></time></p>
   <%= raw post.body%>
 <% end %>
+
+<%= will_paginate @posts %>
