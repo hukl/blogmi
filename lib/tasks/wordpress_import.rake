@@ -1,22 +1,19 @@
+require 'yaml'
+
 namespace :blogmi do
   
   desc "import wordpress data from mysql to current db"
   task :import_wp_posts => :environment do
     
-    $connection_options = {
-      :adapter => "mysql",
-      :encoding => "utf8",
-      :host => "localhost",
-      :username => "root",
-      :password => "",
-      :database => "smyck_de"
-    }
+    $database_options = YAML.load(
+      File.open(
+        File.join( Rails.root, "config", "database.yml" )
+      )
+    )
     
     class WpPost < ActiveRecord::Base
-      self.establish_connection($connection_options)
+      self.establish_connection($database_options["wordpress"])
       set_table_name "wp_posts"
-      
-      
     end
     
     Post.delete_all
@@ -26,7 +23,8 @@ namespace :blogmi do
         :title        => wp_post.post_title,
         :body         => wp_post.post_content,
         :published_at => wp_post.post_date,
-        :slug         => wp_post.post_name
+        :slug         => wp_post.post_name,
+        :permalink    => wp_post.guid
       )
     end
     
