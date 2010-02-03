@@ -3,3 +3,4 @@ log/*.log
 tmp/**/*
 vendor/gems
 db/schema.rb
+config/database.yml
