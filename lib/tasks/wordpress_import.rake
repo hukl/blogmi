@@ -37,7 +37,7 @@ namespace :blogmi do
       
       doc = Nokogiri::HTML.parse(post.body)
       doc.css("a").each {|element| element[:href].sub("&", "%26")}
-      post.update_attributes(:body => doc.css("body").at("body/p").to_s)
+      post.update_attributes(:body => doc.at("body").content)
     end
     
   end
