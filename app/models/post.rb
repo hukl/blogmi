@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
   
+  has_many :comments
+  
   default_scope :order => "published_at DESC"
   
   def public_path
