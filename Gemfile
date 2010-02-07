@@ -9,7 +9,8 @@ gem "rails", "3.0.0.beta"
 
 gem "pg"
 gem "will_paginate"
-
+gem "nokogiri"
+gem "mysql"
 ## Bundle the gems you use:
 # gem "bj"
 # gem "hpricot", "0.6"
