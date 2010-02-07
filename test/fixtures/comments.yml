@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  post_id: 1
+  author: MyString
+  author_email: MyString
+  : 
+  : 
+  : 
+  body: MyText
+  approved: false
+  user_id: 1
+
+two:
+  post_id: 1
+  author: MyString
+  author_email: MyString
+  : 
+  : 
+  : 
+  body: MyText
+  approved: false
+  user_id: 1
